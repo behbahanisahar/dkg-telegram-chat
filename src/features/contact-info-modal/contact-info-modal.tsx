@@ -7,7 +7,12 @@ const ContactInfoModal = (): ReactElement => {
         <div className="d-flex align-items-center">Contact info</div>
         <div className="d-flex flex-column align-items-end">Edit</div>
       </div>
-      <div className="align-self-stretch">test</div>
+      <div className="align-self-stretch row">
+        <div className="col-4">
+          <i className="fa fas fa-phone-alt icon-xl" />
+        </div>
+        <div className="col-8"></div>
+      </div>
     </div>
   );
 };
