@@ -41,6 +41,7 @@
     "@baristalabs/craco-raw-loader": "^1.2.0",
     "@craco/craco": "^5.6.2",
     "@jackwilsdon/craco-use-babelrc": "^1.0.0",
+    "@material-ui/core": "^4.11.0",
     "@navikt/craco-plugins": "^1.0.1",
     "@types/debug": "^4.1.5",
     "@types/jest": "^25.2.3",

@@ -1,1 +1,4 @@
 @import "./assets/css/style.bundle.css";
+.bg-bg-blue {
+  background-color: #3a6d99 !important;
+}
