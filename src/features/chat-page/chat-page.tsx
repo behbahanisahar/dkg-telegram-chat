@@ -1,36 +1,49 @@
-import React, { ReactElement } from "react";
-import { Button } from "react-bootstrap";
+import { Context } from "AppContext";
+import DKAvatar from "core/components/avatar/avatar";
+import React, { ReactElement, useContext } from "react";
+import { Form } from "react-bootstrap";
 import "./chat-page.scss";
+import AllChat from "./user-chat/all-chats";
+
 interface Props {
   selectedChatUsername: number;
   match?: any;
 }
 
 const ChatPage = ({ selectedChatUsername, match }: Props): ReactElement => {
+  const appContext = useContext(Context);
   return (
     <>
       {!selectedChatUsername && (
         <div className="text-muted no-content text-center">Please select a chat to start messaging</div>
       )}
       {selectedChatUsername && (
-        <div className="d-flex  flex-column  h-550px">
-          <div className="p-2 bd-highlight h-100 card-scroll">Flex item</div>
+        <>
+          <div className="card-scroll card-scroll-thick">
+            <AllChat />
+          </div>
 
-          <div className="mt-auto ">
-            <textarea
-              rows={3}
-              className="form-control border-0  border-bottom p-0"
-              placeholder="write a message..."
-            ></textarea>
-            <hr className="bg-primary" />
-            <div className="d-flex align-items-center justify-content-between mt-5">
-              <div></div>
-              <Button className="float-right " variant="link">
-                Send
-              </Button>
+          <div className="position-absolute bottom-0 w-100 my-2">
+            <div className="w-75 d-flex justify-content-center m-auto">
+              <DKAvatar
+                hasLink={false}
+                size={60}
+                imageUrl={appContext?.state.userInfo.avatarURl}
+                pictureTextPlaceholder={appContext?.state.userInfo.textPlaceHolder}
+                type="circle"
+                className="mr-4"
+              />
+              <div className="d-flex flex-column flex-grow-1">
+                <Form.Control type="text" placeholder="Write a message..." />
+
+                <div className="d-flex justify-content-end mt-2">
+                  <a className="font-weight-bolder cursor-pointer tg-primary font-size-md">SEND</a>
+                </div>
+              </div>
+              <DKAvatar size={60} pictureTextPlaceholder="SH" type="circle" className="ml-4" />
             </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );

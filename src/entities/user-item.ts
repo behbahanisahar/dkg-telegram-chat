@@ -6,8 +6,8 @@ export default interface UserItem {
   status: string;
   groupMember?: UserItem[];
   role?: string;
-  avatarURl: string;
-  textPlaceHolder: string;
+  avatarURl?: string;
+  textPlaceHolder?: string;
   type?: "User" | "Group";
   bio?: string;
 }

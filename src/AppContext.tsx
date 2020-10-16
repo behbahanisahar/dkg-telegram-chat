@@ -1,10 +1,13 @@
+import UserItem from "entities/user-item";
 import * as React from "react";
 
 export interface AppContextState {
-  impersonated: boolean;
+  userInfo: UserItem;
 }
 
-interface AppContextActions {}
+interface AppContextActions {
+  setUseInfo: (data: UserItem) => void;
+}
 
 export interface AppContextInterface {
   state: AppContextState;

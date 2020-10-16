@@ -1,8 +1,8 @@
 import img from "../../../assets/img/sahar.jpg";
-import ChatItem from "../chat-item";
+import ChatListItem from "../chat-list-item";
 
 export default class ChatListMockData {
-  public static Comments: ChatItem[] = [
+  public static Comments: ChatListItem[] = [
     {
       user: {
         id: 1,

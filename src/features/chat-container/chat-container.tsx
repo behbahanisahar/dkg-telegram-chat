@@ -15,12 +15,12 @@ export const ChatContainer = ({ match }: Props): ReactElement => {
   return (
     <div className="row">
       <DKCard gutter={true} fitBody={true} className="p-0 mx-auto col-8 ">
-        <DKCardHeader className="text-white row d-flex" hasComplexHeader={true}>
+        <DKCardHeader className="text-white d-flex" hasComplexHeader={true}>
           <ChatHeader />
         </DKCardHeader>
         <DKCardBody>
           <div className="row ">
-            <div className="col-4 ">
+            <div className="col-4 pr-0">
               <InputGroup className="my-3 px-3 w-70">
                 <InputGroup.Prepend>
                   <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
@@ -31,7 +31,7 @@ export const ChatContainer = ({ match }: Props): ReactElement => {
                 <ChatList />
               </div>
             </div>
-            <div className="col-8 ">
+            <div className="col-8 pl-0">
               <ChatPage selectedChatUsername={match.params.username} />
             </div>
           </div>

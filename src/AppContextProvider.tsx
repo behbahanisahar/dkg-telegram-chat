@@ -1,27 +1,27 @@
+import UserItem from "entities/user-item";
 import * as React from "react";
 import { Component } from "react";
 import { AppContextState, Context } from "./AppContext";
 
 class AppContextProvider extends Component<{}, AppContextState> {
   state: AppContextState = {
-    impersonated: false,
+    userInfo: {
+      phoneNumber: "0",
+      userName: "",
+      title: "",
+      id: 0,
+      status: "",
+    },
   };
 
-  setImpersonated = (userId: number): void => {
-    this.setState(prevState => {
-      return {
-        ...prevState,
-        impersonated: true,
-      };
-    });
-  };
+  setUseInfo = (data: UserItem): void => this.setState({ userInfo: data });
   render(): JSX.Element {
     return (
       <Context.Provider
         value={{
           state: this.state,
           actions: {
-            setImpersonated: this.setImpersonated,
+            setUseInfo: this.setUseInfo,
           },
         }}
       >

@@ -2,12 +2,12 @@ import DKAvatar from "core/components/avatar/avatar";
 import { useService } from "hooks/useService";
 import React, { ReactElement, useState } from "react";
 import { Link } from "react-router-dom";
-import ChatItem from "./chat-item";
+import ChatListItem from "./chat-list-item";
 import ChatListServices from "./chat-list-service/chat-list-service";
 import "./chat-list-styles.scss";
 
 const ChatList = (): ReactElement => {
-  const allChats = useService<ChatItem[]>(ChatListServices.getAllChats());
+  const allChats = useService<ChatListItem[]>(ChatListServices.getAllChatList());
   const [selectedChatId, setSelectedChatId] = useState<number>(-1);
   const onSetSelectedChat = (userId: number) => {
     setSelectedChatId(userId);
@@ -19,7 +19,7 @@ const ChatList = (): ReactElement => {
         {allChats.status === "loaded" && (
           <>
             <div className="">
-              {allChats.payload.map((cm: ChatItem, index: number) => {
+              {allChats.payload.map((cm: ChatListItem, index: number) => {
                 return (
                   <Link
                     to={`/${cm.user.userName}`}
@@ -33,11 +33,12 @@ const ChatList = (): ReactElement => {
                     <div className="d-flex align-items-center">
                       <div className="symbol symbol-circle symbol-50 mr-3">
                         <DKAvatar
-                          className="mr-3"
+                          className="mr-1"
                           imageUrl={cm.user.avatarURl}
                           pictureTextPlaceholder={cm.user.textPlaceHolder}
                           size={50}
                           type="circle"
+                          hasLink={false}
                         />
                       </div>
                       <div className="d-flex flex-column">
