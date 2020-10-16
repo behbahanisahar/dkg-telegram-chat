@@ -10,8 +10,6 @@ interface Props {
 }
 
 export const ChatContainer = ({ match }: Props): ReactElement => {
-  console.log(match.params.username);
-
   return (
     <div className="row">
       <DKCard gutter={true} fitBody={true} className="p-0 mx-auto col-8 ">

@@ -12,9 +12,11 @@ class AppContextProvider extends Component<{}, AppContextState> {
       id: 0,
       status: "",
     },
+    showContactInfo: false,
   };
 
   setUseInfo = (data: UserItem): void => this.setState({ userInfo: data });
+  onShowContactInfo = (data: boolean): void => this.setState({ showContactInfo: data });
   render(): JSX.Element {
     return (
       <Context.Provider
@@ -22,6 +24,7 @@ class AppContextProvider extends Component<{}, AppContextState> {
           state: this.state,
           actions: {
             setUseInfo: this.setUseInfo,
+            onShowContactInfo: this.onShowContactInfo,
           },
         }}
       >

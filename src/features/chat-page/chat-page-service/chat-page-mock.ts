@@ -1,5 +1,8 @@
 import ChatItem from "../chat-item";
-import img from "../../../assets/img/sahar.jpg";
+import user1 from "../../../assets/img/img1.png";
+import user2 from "../../../assets/img/img2.png";
+import user3 from "../../../assets/img/img3.png";
+import groupIcon from "../../../assets/img/gpIcon.png";
 
 export default class ChatPageMockData {
   public static chat: ChatItem[] = [
@@ -10,7 +13,7 @@ export default class ChatPageMockData {
         title: "sahar joon",
         phoneNumber: "09120286220",
         status: "last seen recently",
-        avatarURl: img,
+        avatarURl: user2,
         textPlaceHolder: "SB",
         type: "User",
         userName: "@sahar.beh",
@@ -26,7 +29,7 @@ export default class ChatPageMockData {
         title: "Amir Bp",
         phoneNumber: "09125832660",
         status: "13:19 AM",
-        avatarURl: img,
+        avatarURl: user1,
         textPlaceHolder: "AB",
         type: "User",
         userName: "@Amir.BP",
@@ -38,7 +41,7 @@ export default class ChatPageMockData {
           title: "sahar joon",
           phoneNumber: "09120286220",
           status: "last seen recently",
-          avatarURl: img,
+          avatarURl: user2,
           textPlaceHolder: "SB",
           type: "User",
           userName: "@sahar.beh",
@@ -57,7 +60,7 @@ export default class ChatPageMockData {
         title: "sanaz khanum",
         phoneNumber: "09120286770",
         status: "last seen recently",
-
+        avatarURl: user3,
         textPlaceHolder: "SH",
         type: "User",
         userName: "@sahar.beh",
@@ -70,29 +73,28 @@ export default class ChatPageMockData {
       id: "sdfsdfsfs",
       sender: {
         id: 1001,
-        title: "sanaz khanum",
+        title: "Behbahania",
         phoneNumber: "09120286770",
         status: "last seen recently",
-
-        textPlaceHolder: "SH",
+        avatarURl: groupIcon,
+        textPlaceHolder: "BE",
         type: "User",
         userName: "@sahar.beh",
       },
-      text:
-        "Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, all of which are almost exclusively geared towards the normalization of cross browser styles. Let’s dive in.",
+      text: "salam sobe hamegi bekheir chetoriiiiid?",
       receiveTime: "05:10 PM",
     },
     {
       id: "sdfsdfsfs",
       sender: {
         id: 1001,
-        title: "sanaz khanum",
+        title: "fasanghari",
         phoneNumber: "09120286770",
         status: "last seen recently",
 
-        textPlaceHolder: "SH",
+        textPlaceHolder: "FA",
         type: "User",
-        userName: "@sahar.beh",
+        userName: "@fasanghariTop",
       },
       text:
         "Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, all of which are almost exclusively geared towards the normalization of cross browser styles. Let’s dive in.",
