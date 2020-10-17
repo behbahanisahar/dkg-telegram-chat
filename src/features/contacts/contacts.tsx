@@ -19,6 +19,7 @@ const Contacts = (): ReactElement => {
         }}
         className="py-4"
       />
+
       <ContactList searchText={searchTxt} />
     </div>
   );

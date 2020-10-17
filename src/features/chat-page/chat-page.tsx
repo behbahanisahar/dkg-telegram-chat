@@ -1,18 +1,20 @@
 import { Context } from "AppContext";
 import DKAvatar from "core/components/avatar/avatar";
-import React, { ReactElement, useContext, useState } from "react";
+import React, { ReactElement, useContext, useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import "./chat-page.scss";
 import AllChat from "./user-chat/all-chats";
 import ChatItem from "./chat-item";
 import Util from "../../utilities/utilities";
 import UserItem from "entities/user-item";
+import UserChat from "./user-chat/single-user-chat";
 
 interface Props {
   selectedChatUsername: string;
+  onSetSelectedChat: (username: string) => void;
 }
 
-const ChatPage = ({ selectedChatUsername }: Props): ReactElement => {
+const ChatPage = ({ selectedChatUsername, onSetSelectedChat }: Props): ReactElement => {
   const appContext = useContext(Context);
   const InitializedUserInfo: UserItem = {
     phoneNumber: "0",
@@ -26,14 +28,19 @@ const ChatPage = ({ selectedChatUsername }: Props): ReactElement => {
   const userData = selectedChatUsername ? Util.getUserDetailChatList(selectedChatUsername)[0] : InitializedUserInfo;
   const [typedMsg, setTypedMsg] = useState<string>("");
   const [message, setMessage] = useState<ChatItem>();
-
+  const [selectedChat, setSelectedChat] = useState<ChatItem>();
+  useEffect(() => {
+    onSetSelectedChat(userData.userName);
+  }, [selectedChatUsername]);
   const onSendMessage = (): void => {
     if (typedMsg) {
       const Message: ChatItem = {
         sender: appContext?.state.userInfo || InitializedUserInfo,
         text: typedMsg,
-        receiveTime: "now",
+        receiveTime: Util.formatAMPM(new Date()),
+        repliedTo: selectedChat,
       };
+      setSelectedChat(undefined);
       setMessage(Message);
       setTypedMsg("");
     }
@@ -46,10 +53,17 @@ const ChatPage = ({ selectedChatUsername }: Props): ReactElement => {
       {selectedChatUsername && (
         <>
           <div className="card-scroll card-scroll-thick h-450px">
-            <AllChat message={message} />
+            <AllChat setSelectedChat={setSelectedChat} message={message} />
           </div>
 
           <div className="position-absolute bottom-0 w-100 my-2">
+            {selectedChat && (
+              <div className="w-50 d-flex justify-content-between m-auto">
+                <UserChat isRepliedMessage={true} chat={selectedChat} />
+                <i className="fa fa-times" onClick={() => setSelectedChat(undefined)} />
+              </div>
+            )}
+
             <div className="w-75 d-flex justify-content-center m-auto">
               <DKAvatar
                 hasLink={false}

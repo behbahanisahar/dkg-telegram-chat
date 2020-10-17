@@ -13,7 +13,7 @@ const ContactsHeader = ({ userData }: Props): ReactElement => {
       <div className="h-50px position-fix bg-bg-blue text-white d-flex p-3 font-weight-bold  align-items-start justify-content-between">
         <div className="d-flex align-items-center">Contacts</div>
         <div
-          className="d-flex flex-column align-items-end"
+          className="d-flex flex-column align-items-end cursor-pointer"
           onClick={() => appContext?.actions.onShowContactsPage(false)}
         >
           Close

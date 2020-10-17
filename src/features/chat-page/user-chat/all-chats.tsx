@@ -7,9 +7,10 @@ import UserChat from "./single-user-chat";
 interface Props {
   match?: any;
   message?: ChatItem;
+  setSelectedChat: (message: ChatItem) => void;
 }
 
-const AllChat = ({ match, message }: Props): ReactElement => {
+const AllChat = ({ match, message, setSelectedChat }: Props): ReactElement => {
   const username = match?.params.username;
   const [allMessages, setAllMessages] = useState<ChatItem[]>([]);
   const allChats = useService<ChatItem[]>(ChatServices.getAllChats(username));
@@ -23,7 +24,9 @@ const AllChat = ({ match, message }: Props): ReactElement => {
     }
   }, [allChats.status]);
   useEffect(() => {
-    if (message) setAllMessages([...allMessages, message]);
+    if (message) {
+      setAllMessages([...allMessages, message]);
+    }
   }, [message]);
   useEffect(() => {
     scrollToBottom();
@@ -34,8 +37,9 @@ const AllChat = ({ match, message }: Props): ReactElement => {
       {allChats.status === "loaded" && (
         <div className="mr-2  w-75 mx-auto ">
           {allMessages.map((chat: ChatItem, index: number) => {
-            return <UserChat chat={chat} />;
+            return <UserChat onChatSelected={setSelectedChat} chat={chat} />;
           })}
+
           <div
             style={{ float: "left", clear: "both" }}
             ref={el => {

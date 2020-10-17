@@ -6,11 +6,12 @@ import ChatItem from "../chat-item";
 import "./../chat-page.scss";
 
 interface Props {
-  chat: ChatItem;
+  chat?: ChatItem;
   isRepliedMessage?: boolean;
+  onChatSelected?: (chat: ChatItem) => void;
 }
 
-const UserChat = ({ chat, isRepliedMessage }: Props): ReactElement => {
+const UserChat = ({ chat, isRepliedMessage, onChatSelected }: Props): ReactElement => {
   const appContext = useContext(Context);
   return (
     <div className={"d-flex  justify-content-between p-3 "}>
@@ -18,34 +19,48 @@ const UserChat = ({ chat, isRepliedMessage }: Props): ReactElement => {
         {!isRepliedMessage && (
           <DKAvatar
             className="mr-2"
-            userName={chat.sender.userName}
-            imageUrl={chat.sender.avatarURl}
-            pictureTextPlaceholder={chat.sender.textPlaceHolder}
+            userName={chat?.sender.userName}
+            imageUrl={chat?.sender.avatarURl}
+            pictureTextPlaceholder={chat?.sender.textPlaceHolder}
             size={45}
             type="circle"
-            onClickAvatar={() => appContext?.actions.onShowContactInfo(true, chat.sender)}
+            onClickAvatar={() => appContext?.actions.onShowContactInfo(true, chat?.sender)}
           />
         )}
         {isRepliedMessage && <span className="bullet bullet-bar bg-info align-self-stretch mr-2"></span>}
         <div className={isRepliedMessage ? "d-flex flex-column" : "d-flex flex-column"}>
-          <Link to={`/${chat.sender.userName}`} className="tg-primary">
-            <span className={"font-weight-bold font-size-lg tg-user-text-color "}>{chat.sender.title}</span>
+          <Link to={`/${chat?.sender.userName}`} className="tg-primary">
+            <span className={"font-weight-bold font-size-lg tg-user-text-color "}>{chat?.sender.title}</span>
           </Link>
-          {chat.repliedTo && <UserChat chat={chat.repliedTo} isRepliedMessage={true} />}
-
+          {chat?.repliedTo && <UserChat chat={chat?.repliedTo} isRepliedMessage={true} />}
+          {}{" "}
           <span
             className={
               isRepliedMessage ? "font-size-md  text-truncate d-inline-block " : "font-size-md message-text ml-4"
             }
             style={isRepliedMessage ? { maxWidth: "350px" } : { maxWidth: "" }}
           >
-            {chat.text}
+            {chat?.text}
           </span>
         </div>
       </div>
       {!isRepliedMessage && (
         <div className="d-flex flex-column align-items-end w-xl-75 w-75">
-          <span className={"font-weight-bold font-size-sm text-muted"}>{chat.receiveTime}</span>
+          <span className={"font-weight-bold font-size-sm text-muted"}>{chat?.receiveTime}</span>
+          <span
+            className={"font-weight-bold font-size-sm tg-primary d-block cursor-pointer"}
+            onClick={() => {
+              if (chat && onChatSelected) {
+                const selectedChat: ChatItem = {
+                  ...chat,
+                  repliedTo: undefined,
+                };
+                onChatSelected(selectedChat);
+              }
+            }}
+          >
+            <i className="fa fa-reply" />
+          </span>
         </div>
       )}
     </div>

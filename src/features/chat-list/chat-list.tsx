@@ -1,26 +1,45 @@
 import DKAvatar from "core/components/avatar/avatar";
 import { useService } from "hooks/useService";
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ChatListItem from "./chat-list-item";
 import ChatListServices from "./chat-list-service/chat-list-service";
 import "./chat-list-styles.scss";
+interface Props {
+  searchText: string;
+  selectedUsername: string;
+}
 
-const ChatList = (): ReactElement => {
+const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
+  console.log(selectedUsername);
   const allChats = useService<ChatListItem[]>(ChatListServices.getAllChatList());
-
+  const [filteredChats, setFilteredChats] = useState<ChatListItem[]>([]);
   const [selectedChatId, setSelectedChatId] = useState<number>(-1);
   const onSetSelectedChat = (userId: number) => {
     setSelectedChatId(userId);
   };
+  useEffect(() => {
+    if (allChats.status === "loaded") {
+      // let filteredContact;
+      const filteredContact = allChats.payload.filter(chats => {
+        return (
+          chats.user.title.toLowerCase().indexOf(searchText.toLowerCase()) > -1 ||
+          chats.user.userName.toLowerCase().indexOf(searchText.toLowerCase()) > -1 ||
+          chats.lastMessage.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+        );
+      });
+      // filteredContact.filter(x => x.user.userName === selectedUsername)[0].newMessageCount === 0;
+      setFilteredChats(filteredContact);
+    }
+  }, [searchText]);
 
   return (
     <div>
       <div className="position-relative">
-        {allChats.status === "loaded" && (
+        {filteredChats.length !== 0 && (
           <>
             <div className="">
-              {allChats.payload.map((cm: ChatListItem, index: number) => {
+              {filteredChats.map((cm: ChatListItem, index: number) => {
                 return (
                   <Link
                     to={`/${cm.user.userName}`}
