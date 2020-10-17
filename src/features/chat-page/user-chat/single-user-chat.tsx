@@ -59,7 +59,7 @@ const UserChat = ({ chat, isRepliedMessage, onChatSelected }: Props): ReactEleme
               }
             }}
           >
-            <i className="fa fa-reply" />
+            <i className="fa fa-reply tg-primary icon-md" />
           </span>
         </div>
       )}
