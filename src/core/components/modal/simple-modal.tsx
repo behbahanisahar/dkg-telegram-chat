@@ -11,16 +11,26 @@ interface Props {
   modalTitle?: string;
   modalMaxWidth: "xs" | "sm" | "md" | "lg" | "xl" | false;
   height: string;
+  className?: string;
   children?: any;
   onClose?: () => void;
 }
 
-const SimpleModal = ({ onClose, open, modalTitle, modalMaxWidth, height, children, history }: Props): ReactElement => {
+const SimpleModal = ({
+  onClose,
+  open,
+  modalTitle,
+  modalMaxWidth,
+  height,
+  children,
+  history,
+  className,
+}: Props): ReactElement => {
   const htlmElement: HTMLElement = document.getElementById("modal_root")!;
 
   return createPortal(
     <Dialog
-      className="rtl"
+      className={className + " rtl"}
       maxWidth={modalMaxWidth}
       fullWidth={true}
       open={open}

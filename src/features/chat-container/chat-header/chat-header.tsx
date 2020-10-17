@@ -9,11 +9,14 @@ interface Props {
 
 const ChatHeader = ({ username }: Props): ReactElement => {
   const appContext = useContext(Context);
-  const userData = username ? Util.getUserDetailChatList(username || "")[0].user : null;
+  const userData = username ? Util.getUserDetailChatList(username || "")[0] : null;
 
   return (
     <>
-      <div className="col-4 d-flex align-items-center">Telegram</div>
+      <div className="col-4 d-flex align-items-center">
+        <i className="fa fa-ellipsis-v icon-md mr-5" onClick={() => appContext?.actions.onShowContactsPage(true)} />{" "}
+        Telegram
+      </div>
       {userData && (
         <div
           className="col-8 d-flex align-items-center"

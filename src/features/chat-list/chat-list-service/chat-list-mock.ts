@@ -12,6 +12,7 @@ export default class ChatListMockData {
         status: "online",
         avatarURl: img,
         textPlaceHolder: "SB",
+        type: "User",
       },
       lastMessage: "Hello",
       lastMessageTime: "now",

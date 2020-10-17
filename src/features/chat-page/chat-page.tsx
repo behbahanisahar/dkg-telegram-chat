@@ -23,9 +23,7 @@ const ChatPage = ({ selectedChatUsername }: Props): ReactElement => {
     avatarURl: appContext?.state.userInfo.avatarURl,
     textPlaceHolder: "",
   };
-  const userData = selectedChatUsername
-    ? Util.getUserDetailChatList(selectedChatUsername)[0].user
-    : InitializedUserInfo;
+  const userData = selectedChatUsername ? Util.getUserDetailChatList(selectedChatUsername)[0] : InitializedUserInfo;
   const [typedMsg, setTypedMsg] = useState<string>("");
   const [message, setMessage] = useState<ChatItem>();
 

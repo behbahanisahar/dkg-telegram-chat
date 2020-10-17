@@ -5,11 +5,13 @@ export interface AppContextState {
   userInfo: UserItem;
   showContactInfo: boolean;
   selectedUser: UserItem;
+  showContactPage: boolean;
 }
 
 interface AppContextActions {
   setUseInfo: (data: UserItem) => void;
   onShowContactInfo: (show: boolean, data?: UserItem) => void;
+  onShowContactsPage: (show: boolean) => void;
 }
 
 export interface AppContextInterface {

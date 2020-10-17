@@ -1,9 +1,10 @@
-import ChatListMockData from "features/chat-list/chat-list-service/chat-list-mock";
+import ContactsMockData from "./../features/contacts/contact-service/contact-mock";
 
 export default class Utilities {
   public static getUserDetailChatList = (username: string) => {
-    const allData = ChatListMockData.Comments;
-    const userData = allData.filter(x => x.user.userName === username);
+    debugger;
+    const allData = ContactsMockData.contacts;
+    const userData = allData.filter(x => x.userName === username);
 
     return userData;
   };

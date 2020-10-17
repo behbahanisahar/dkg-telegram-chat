@@ -1,6 +1,7 @@
 import { DKCard, DKCardBody, DKCardHeader } from "core/components/card";
 import ChatList from "features/chat-list/chat-list";
 import ChatPage from "features/chat-page/chat-page";
+import ContactModal from "features/contacts/contact-modal";
 import ProfileInfoModal from "features/profile-info/profile-info-modal";
 import React, { ReactElement } from "react";
 import { FormControl, InputGroup } from "react-bootstrap";
@@ -23,7 +24,9 @@ export const ChatContainer = ({ match }: Props): ReactElement => {
             <div className="col-4 pr-0">
               <InputGroup className="my-3 px-3 w-70">
                 <InputGroup.Prepend>
-                  <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                  <InputGroup.Text id="basic-addon1">
+                    <i className="fa fa-search" />
+                  </InputGroup.Text>
                 </InputGroup.Prepend>
                 <FormControl placeholder="Search" aria-label="Username" aria-describedby="basic-addon1" />
               </InputGroup>
@@ -36,6 +39,7 @@ export const ChatContainer = ({ match }: Props): ReactElement => {
             </div>
           </div>
           <ProfileInfoModal />
+          <ContactModal />
         </DKCardBody>
       </DKCard>
     </div>

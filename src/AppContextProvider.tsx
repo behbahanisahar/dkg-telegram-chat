@@ -13,11 +13,12 @@ class AppContextProvider extends Component<{}, AppContextState> {
       status: "",
     },
     showContactInfo: false,
+    showContactPage: false,
     selectedUser: { phoneNumber: "0", userName: "", title: "", id: 0, status: "" },
   };
 
   setUseInfo = (data: UserItem): void => this.setState({ userInfo: data });
-
+  onShowContactsPage = (data: boolean): void => this.setState({ showContactPage: data });
   onShowContactInfo = (data: boolean, user?: UserItem): void => {
     this.setState(prevState => {
       return {
@@ -35,6 +36,7 @@ class AppContextProvider extends Component<{}, AppContextState> {
           actions: {
             setUseInfo: this.setUseInfo,
             onShowContactInfo: this.onShowContactInfo,
+            onShowContactsPage: this.onShowContactsPage,
           },
         }}
       >

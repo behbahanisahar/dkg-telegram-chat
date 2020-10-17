@@ -44,7 +44,7 @@ export default class ChatPageMockData {
           avatarURl: user2,
           textPlaceHolder: "SB",
           type: "User",
-          userName: "solmaz.sh",
+          userName: "sahar khanum",
         },
         text:
           "Set the direction of flex items in a flex container with direction utilities. In most cases you can omit the horizontal class here as the browser default is row. However, you may encounter situations where you needed to explicitly set this value (like responsive layouts).Use .flex-row to set a horizontal direction (the browser default), or .flex-row-reverse to start the horizontal direction from the opposite side.",
@@ -78,7 +78,7 @@ export default class ChatPageMockData {
         status: "last seen recently",
         avatarURl: groupIcon,
         textPlaceHolder: "BE",
-        type: "User",
+        type: "Group",
         userName: "behbahaniha",
       },
       text: "salam sobe hamegi bekheir chetoriiiiid?",
@@ -93,7 +93,7 @@ export default class ChatPageMockData {
         status: "last seen recently",
 
         textPlaceHolder: "FA",
-        type: "User",
+        type: "Group",
         userName: "fasanghariTop",
       },
       text:
