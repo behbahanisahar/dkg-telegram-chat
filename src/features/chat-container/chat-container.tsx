@@ -1,10 +1,12 @@
 import { DKCard, DKCardBody, DKCardHeader } from "core/components/card";
 import ChatList from "features/chat-list/chat-list";
 import ChatPage from "features/chat-page/chat-page";
+import ProfileInfoModal from "features/profile-info/profile-info-modal";
 import React, { ReactElement } from "react";
 import { FormControl, InputGroup } from "react-bootstrap";
 import "./chat-container.scss";
 import ChatHeader from "./chat-header/chat-header";
+
 interface Props {
   match: any;
 }
@@ -14,7 +16,7 @@ export const ChatContainer = ({ match }: Props): ReactElement => {
     <div className="row">
       <DKCard gutter={true} fitBody={true} className="p-0 mx-auto col-8 ">
         <DKCardHeader className="text-white d-flex" hasComplexHeader={true}>
-          <ChatHeader />
+          <ChatHeader username={match.params.username} />
         </DKCardHeader>
         <DKCardBody>
           <div className="row ">
@@ -33,6 +35,7 @@ export const ChatContainer = ({ match }: Props): ReactElement => {
               <ChatPage selectedChatUsername={match.params.username} />
             </div>
           </div>
+          <ProfileInfoModal />
         </DKCardBody>
       </DKCard>
     </div>

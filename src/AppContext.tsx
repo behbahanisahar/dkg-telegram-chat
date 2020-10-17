@@ -4,11 +4,12 @@ import * as React from "react";
 export interface AppContextState {
   userInfo: UserItem;
   showContactInfo: boolean;
+  selectedUser: UserItem;
 }
 
 interface AppContextActions {
   setUseInfo: (data: UserItem) => void;
-  onShowContactInfo: (show: boolean) => void;
+  onShowContactInfo: (show: boolean, data?: UserItem) => void;
 }
 
 export interface AppContextInterface {

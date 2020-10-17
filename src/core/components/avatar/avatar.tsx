@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ReactElement } from "react";
-import { Link } from "react-router-dom";
 import "./avatar.scss";
 interface Props {
   imageUrl?: string;
@@ -14,6 +13,7 @@ interface Props {
   hasLink?: boolean;
   pictureTextPlaceholder?: string;
   color?: string;
+  onClickAvatar?: () => void;
 }
 const DKAvatar = ({
   imageUrl,
@@ -27,17 +27,22 @@ const DKAvatar = ({
   hasLink = true,
   pictureTextPlaceholder = "",
   color = "symbol-light-info",
+  onClickAvatar,
 }: Props): ReactElement => {
-  const avatarElement: any = (
+  return (
     <div
       className={
         (isSymbol ? "symbol symbol-" + size : "image-input ") +
         (type === "circle" ? " symbol-circle" : "") +
         (outline ? " image-input-outline" : "") +
         (className ? ` ${className}` : "") +
+        (hasLink ? " cursor-pointer" : "") +
         ` ${color}`
       }
       style={{ minHeight: size + "px" }}
+      onClick={() => {
+        onClickAvatar && onClickAvatar();
+      }}
     >
       {Boolean(imageUrl) && (
         <div
@@ -54,20 +59,6 @@ const DKAvatar = ({
       )}
       {children}
     </div>
-  );
-  return (
-    <>
-      {hasLink && (
-        <Link
-          to={`/chat/${userName ? userName : ""}`}
-          className={className}
-          style={{ cursor: hasLink ? "pointer" : "auto" }}
-        >
-          {avatarElement}
-        </Link>
-      )}
-      {!hasLink && avatarElement}
-    </>
   );
 };
 export default DKAvatar;

@@ -13,24 +13,35 @@ const AllChat = ({ match, message }: Props): ReactElement => {
   const username = match?.params.username;
   const [allMessages, setAllMessages] = useState<ChatItem[]>([]);
   const allChats = useService<ChatItem[]>(ChatServices.getAllChats(username));
-
+  let messagesEnd: any;
+  const scrollToBottom = (): void => {
+    messagesEnd.scrollIntoView({ behavior: "smooth" });
+  };
   useEffect(() => {
-    let chats: ChatItem[];
     if (allChats.status === "loaded") {
       setAllMessages(allChats.payload);
-      chats = [...allChats.payload];
-      message && chats.push(message);
-      setAllMessages(chats);
     }
-  }, [message, allChats.status]);
+  }, [allChats.status]);
+  useEffect(() => {
+    if (message) setAllMessages([...allMessages, message]);
+  }, [message]);
+  useEffect(() => {
+    scrollToBottom();
+  }, [allMessages]);
 
   return (
     <>
-      {allMessages.length !== 0 && (
-        <div className="mr-2 h-450px w-75 mx-auto ">
+      {allChats.status === "loaded" && (
+        <div className="mr-2  w-75 mx-auto ">
           {allMessages.map((chat: ChatItem, index: number) => {
             return <UserChat chat={chat} />;
           })}
+          <div
+            style={{ float: "left", clear: "both" }}
+            ref={el => {
+              messagesEnd = el;
+            }}
+          ></div>
         </div>
       )}
     </>

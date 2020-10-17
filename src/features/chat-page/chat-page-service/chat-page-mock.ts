@@ -7,7 +7,7 @@ import groupIcon from "../../../assets/img/gpIcon.png";
 export default class ChatPageMockData {
   public static chat: ChatItem[] = [
     {
-      id: "sbfjsdh",
+      id: "12",
       sender: {
         id: 1001,
         title: "sahar joon",
@@ -16,14 +16,14 @@ export default class ChatPageMockData {
         avatarURl: user2,
         textPlaceHolder: "SB",
         type: "User",
-        userName: "@sahar.beh",
+        userName: "sahar.beh",
       },
       text:
         "Set the direction of flex items in a flex container with direction utilities. In most cases you can omit the horizontal class here as the browser default is row. However, you may encounter situations where you needed to explicitly set this value (like responsive layouts).Use .flex-row to set a horizontal direction (the browser default), or .flex-row-reverse to start the horizontal direction from the opposite side.",
       receiveTime: "19:18 PM",
     },
     {
-      id: "grgergw",
+      id: "11",
       sender: {
         id: 1001,
         title: "Amir Bp",
@@ -32,19 +32,19 @@ export default class ChatPageMockData {
         avatarURl: user1,
         textPlaceHolder: "AB",
         type: "User",
-        userName: "@Amir.BP",
+        userName: "Amir.BP",
       },
       repliedTo: {
-        id: "sbfjsdh",
+        id: "13",
         sender: {
           id: 1001,
-          title: "sahar joon",
+          title: "solmaz",
           phoneNumber: "09120286220",
           status: "last seen recently",
           avatarURl: user2,
           textPlaceHolder: "SB",
           type: "User",
-          userName: "@sahar.beh",
+          userName: "solmaz.sh",
         },
         text:
           "Set the direction of flex items in a flex container with direction utilities. In most cases you can omit the horizontal class here as the browser default is row. However, you may encounter situations where you needed to explicitly set this value (like responsive layouts).Use .flex-row to set a horizontal direction (the browser default), or .flex-row-reverse to start the horizontal direction from the opposite side.",
@@ -54,7 +54,7 @@ export default class ChatPageMockData {
       receiveTime: "10:10 PM",
     },
     {
-      id: "sdfsdfsfs",
+      id: "14",
       sender: {
         id: 1001,
         title: "sanaz khanum",
@@ -63,14 +63,14 @@ export default class ChatPageMockData {
         avatarURl: user3,
         textPlaceHolder: "SH",
         type: "User",
-        userName: "@sahar.beh",
+        userName: "sh.hosseini",
       },
       text:
         "Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, all of which are almost exclusively geared towards the normalization of cross browser styles. Let’s dive in.",
       receiveTime: "05:10 PM",
     },
     {
-      id: "sdfsdfsfs",
+      id: "15",
       sender: {
         id: 1001,
         title: "Behbahania",
@@ -79,13 +79,13 @@ export default class ChatPageMockData {
         avatarURl: groupIcon,
         textPlaceHolder: "BE",
         type: "User",
-        userName: "@sahar.beh",
+        userName: "behbahaniha",
       },
       text: "salam sobe hamegi bekheir chetoriiiiid?",
       receiveTime: "05:10 PM",
     },
     {
-      id: "sdfsdfsfs",
+      id: "16",
       sender: {
         id: 1001,
         title: "fasanghari",
@@ -94,7 +94,7 @@ export default class ChatPageMockData {
 
         textPlaceHolder: "FA",
         type: "User",
-        userName: "@fasanghariTop",
+        userName: "fasanghariTop",
       },
       text:
         "Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, all of which are almost exclusively geared towards the normalization of cross browser styles. Let’s dive in.",

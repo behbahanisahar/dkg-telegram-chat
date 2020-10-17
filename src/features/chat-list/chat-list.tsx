@@ -8,6 +8,7 @@ import "./chat-list-styles.scss";
 
 const ChatList = (): ReactElement => {
   const allChats = useService<ChatListItem[]>(ChatListServices.getAllChatList());
+
   const [selectedChatId, setSelectedChatId] = useState<number>(-1);
   const onSetSelectedChat = (userId: number) => {
     setSelectedChatId(userId);
@@ -28,7 +29,9 @@ const ChatList = (): ReactElement => {
                       "d-flex   align-items-center justify-content-between px-2 py-1 " +
                       (selectedChatId === cm.user.id ? "active-chat" : "overlay")
                     }
-                    onClick={() => onSetSelectedChat(cm.user.id)}
+                    onClick={() => {
+                      onSetSelectedChat(cm.user.id);
+                    }}
                   >
                     <div className="d-flex align-items-center">
                       <div className="symbol symbol-circle symbol-50 mr-3">
