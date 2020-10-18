@@ -16,10 +16,6 @@ const ChatHeader = ({ username }: Props): ReactElement => {
   return (
     <>
       <div className="col-4 d-flex align-items-center">
-        {/* <i
-          className="fa fa-ellipsis-v icon-md mr-5 cursor-pointer"
-          onClick={() => appContext?.actions.onShowContactsPage(true)}
-        /> */}
         <MenuListComposition />
         Telegram
       </div>

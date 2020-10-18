@@ -20,6 +20,7 @@ const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
   useEffect(() => {
     if (allChats.status === "loaded") {
       const filteredChat = allChats.payload.filter(chats => {
+        //this is for filtering data
         return (
           chats.user.title.toLowerCase().indexOf(searchText.toLowerCase()) > -1 ||
           chats.user.userName.toLowerCase().indexOf(searchText.toLowerCase()) > -1 ||
