@@ -11,7 +11,6 @@ interface Props {
 }
 
 const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
-  console.log(selectedUsername);
   const allChats = useService<ChatListItem[]>(ChatListServices.getAllChatList());
   const [filteredChats, setFilteredChats] = useState<ChatListItem[]>([]);
   const [selectedChatId, setSelectedChatId] = useState<number>(-1);

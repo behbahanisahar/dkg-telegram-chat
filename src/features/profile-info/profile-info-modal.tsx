@@ -5,7 +5,7 @@ import React, { ReactElement, useContext } from "react";
 
 const ProfileInfoModal = (): ReactElement => {
   const appContext = useContext(Context);
-  console.log(appContext?.state.showContactInfo);
+
   return (
     <SimpleModal
       modalMaxWidth="xs"
