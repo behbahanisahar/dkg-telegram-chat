@@ -12,19 +12,22 @@
 .label-dark {
   background-color: #b3b3b3 !important;
 }
-@media (min-width: 1300px) {
+.text-truncate-max {
+  max-width: 200px !important;
+}
+@media (max-width: 1300px) {
   .text-truncate-max {
-    max-width: 150px !important;
+    max-width: 180px !important;
   }
 }
-@media (min-width: 900px) {
+@media (max-width: 900px) {
   .text-truncate-max {
-    max-width: 80px !important;
+    max-width: 160px !important;
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .text-truncate-max {
-    max-width: 50px !important;
+    max-width: 110px !important;
   }
 }

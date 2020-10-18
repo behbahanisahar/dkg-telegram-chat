@@ -42,7 +42,7 @@ const UserChat = ({ chat, isRepliedMessage, onChatSelected }: Props): ReactEleme
           <span
             className={
               isRepliedMessage
-                ? "font-size-md text-truncate-max text-truncate d-inline-block "
+                ? "font-size-md text-truncate-w text-truncate d-inline-block "
                 : "font-size-md message-text ml-4"
             }
           >

@@ -7,20 +7,22 @@
 .message-text {
   white-space: pre-line !important;
 }
-
-@media (min-width: 1300px) {
-  .text-truncate-max {
-    max-width: 350px !important;
+.text-truncate-max-w {
+  max-width: 400px;
+}
+@media (max-width: 1300px) {
+  .text-truncate-max-w {
+    max-width: 400px !important;
   }
 }
-@media (min-width: 900px) {
-  .text-truncate-max {
+@media (max-width: 900px) {
+  .text-truncate-max-w {
     max-width: 250px !important;
   }
 }
 
-@media (min-width: 768px) {
-  .text-truncate-max {
+@media (max-width: 768px) {
+  .text-truncate-max-w {
     max-width: 100px !important;
   }
 }
