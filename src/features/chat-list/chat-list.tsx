@@ -57,8 +57,6 @@ const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
                     }
                     onClick={() => {
                       onSetSelectedChat(cm.user.id);
-                      const messageBox: any = document.getElementById("messageBox") || []; //change focus to message box
-                      messageBox && messageBox.focus();
                     }}
                   >
                     <div className="d-flex align-items-center">

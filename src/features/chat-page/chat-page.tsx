@@ -31,6 +31,8 @@ const ChatPage = ({ selectedChatUsername, onSetSelectedChat }: Props): ReactElem
   const [selectedChat, setSelectedChat] = useState<ChatItem>();
   useEffect(() => {
     onSetSelectedChat(userData.userName);
+    const messageBox: any = document.getElementById("messageBox") || []; //change focus to message box
+    messageBox.length !== 0 && messageBox.focus();
   }, [selectedChatUsername]);
   const onSendMessage = (): void => {
     if (typedMsg) {

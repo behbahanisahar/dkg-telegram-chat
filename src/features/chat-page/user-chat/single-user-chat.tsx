@@ -64,8 +64,9 @@ const UserChat = ({ chat, isRepliedMessage, onChatSelected }: Props): ReactEleme
                         repliedTo: undefined,
                       };
                       onChatSelected(selectedChat);
+
                       const messageBox: any = document.getElementById("messageBox") || []; //change focus to message box
-                      messageBox && messageBox.focus();
+                      messageBox.length !== 0 && messageBox.focus();
                     }
                   }}
                 >
