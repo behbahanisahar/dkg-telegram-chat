@@ -17,7 +17,7 @@ export const ChatContainer = ({ match }: Props): ReactElement => {
   const [selectedUsername, setSelectedUsername] = useState<string>("");
   return (
     <div className="row">
-      <DKCard gutter={true} fitBody={true} className="p-0 mx-auto col-xl-8 col-sm-11 ">
+      <DKCard gutter={true} fitBody={true} className="p-0 mx-auto col-xl-8 col-sm-12 ">
         <DKCardHeader className="text-white d-flex" hasComplexHeader={true}>
           <ChatHeader username={match.params.username} />
         </DKCardHeader>

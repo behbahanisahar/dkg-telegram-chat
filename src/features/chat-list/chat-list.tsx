@@ -52,7 +52,7 @@ const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
                     to={`/${cm.user.userName}`}
                     key={index}
                     className={
-                      "d-flex   align-items-center justify-content-between px-2 py-1 " +
+                      "d-flex   align-items-center justify-content-between px-2 py-1 ml-sm-3 " +
                       (selectedChatId === cm.user.id ? "active-chat" : "overlay")
                     }
                     onClick={() => {
@@ -90,7 +90,12 @@ const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
                     <div className="d-flex flex-column align-items-end">
                       <span className="text-muted font-weight-bold font-size-sm"> {cm.lastMessageTime}</span>
                       {Boolean(cm.newMessageCount) && (
-                        <span className="label label-sm label-dark text-white font-weight-bold">
+                        <span
+                          className={
+                            "label  label-sm text-white font-weight-bold" +
+                            (cm.user.mutedNotification ? " label-light-dark" : " label-success")
+                          }
+                        >
                           {cm.newMessageCount}
                         </span>
                       )}

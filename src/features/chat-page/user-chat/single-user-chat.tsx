@@ -30,46 +30,51 @@ const UserChat = ({ chat, isRepliedMessage, onChatSelected }: Props): ReactEleme
         )}
         {isRepliedMessage && <span className="bullet bullet-bar bg-info align-self-stretch mr-2"></span>}
         <div className={isRepliedMessage ? "d-flex flex-column w-100" : "d-flex flex-column w-100"}>
-          <Link
-            onClick={() => appContext?.actions.onShowContactInfo(true, chat?.sender)}
-            to={`/${chat?.sender.userName}`}
-            className="tg-primary"
-          >
-            <span className={"font-weight-bold font-size-lg tg-user-text-color "}>{chat?.sender.title}</span>
-          </Link>
-          {chat?.repliedTo && <UserChat chat={chat?.repliedTo} isRepliedMessage={true} />}
-          {}{" "}
-          <span
-            className={
-              isRepliedMessage
-                ? "font-size-md text-truncate-w text-truncate d-inline-block "
-                : "font-size-md message-text ml-4"
-            }
-          >
-            {chat?.text}
-          </span>
-        </div>
-        {!isRepliedMessage && (
-          <div className="d-flex flex-column align-items-end receive-time">
-            <span className={"font-weight-bold font-size-sm text-muted"}>{chat?.receiveTime}</span>
-            <span
-              className={"font-weight-bold font-size-sm tg-primary d-block cursor-pointer"}
-              onClick={() => {
-                if (chat && onChatSelected) {
-                  const selectedChat: ChatItem = {
-                    ...chat,
-                    repliedTo: undefined,
-                  };
-                  onChatSelected(selectedChat);
-                  var messageBox: any = document.getElementById("messageBox") || []; //change focus to message box
-                  messageBox && messageBox.focus();
-                }
-              }}
+          <div className="d-flex justify-content-between">
+            <Link
+              onClick={() => appContext?.actions.onShowContactInfo(true, chat?.sender)}
+              to={`/${chat?.sender.userName}`}
+              className="tg-primary align-self-start"
             >
-              <i className="fa fa-reply tg-primary icon-md" />
-            </span>
+              <span className={"font-weight-bold font-size-lg tg-user-text-color "}>{chat?.sender.title}</span>
+            </Link>
+            {!isRepliedMessage && (
+              <span className={"font-weight-bold font-size-sm text-muted align-self-end"}>{chat?.receiveTime}</span>
+            )}
           </div>
-        )}
+          {chat?.repliedTo && <UserChat chat={chat?.repliedTo} isRepliedMessage={true} />}
+          <div className="d-flex justify-content-between">
+            <span
+              className={
+                isRepliedMessage
+                  ? "font-size-md text-truncate-max-w text-truncate d-inline-block align-self-start"
+                  : "font-size-md message-text ml-4"
+              }
+            >
+              {chat?.text}
+            </span>
+            {!isRepliedMessage && (
+              <div className="d-flex flex-column align-items-end receive-time align-self-start">
+                <span
+                  className={"font-weight-bold font-size-sm tg-primary d-block cursor-pointer"}
+                  onClick={() => {
+                    if (chat && onChatSelected) {
+                      const selectedChat: ChatItem = {
+                        ...chat,
+                        repliedTo: undefined,
+                      };
+                      onChatSelected(selectedChat);
+                      var messageBox: any = document.getElementById("messageBox") || []; //change focus to message box
+                      messageBox && messageBox.focus();
+                    }
+                  }}
+                >
+                  <i className="fa fa-reply tg-primary icon-md" />
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

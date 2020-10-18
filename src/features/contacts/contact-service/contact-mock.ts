@@ -168,6 +168,7 @@ export default class ContactsMockData {
       status: "last seen recently",
       avatarURl: user2,
       textPlaceHolder: "SB",
+      mutedNotification: true,
       type: "User",
       userName: "sahar.beh",
     },
@@ -189,6 +190,7 @@ export default class ContactsMockData {
       avatarURl: user3,
       textPlaceHolder: "SH",
       type: "User",
+      mutedNotification: true,
       userName: "sh.hosseini",
     },
     {

@@ -6,6 +6,7 @@ export default interface UserItem {
   status: string;
   groupMember?: UserItem[];
   role?: string;
+  mutedNotification?: boolean;
   avatarURl?: string;
   textPlaceHolder?: string;
   type?: "User" | "Group";
