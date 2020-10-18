@@ -57,7 +57,7 @@ const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
                     }
                     onClick={() => {
                       onSetSelectedChat(cm.user.id);
-                      var messageBox: any = document.getElementById("messageBox") || []; //change focus to message box
+                      const messageBox: any = document.getElementById("messageBox") || []; //change focus to message box
                       messageBox && messageBox.focus();
                     }}
                   >
