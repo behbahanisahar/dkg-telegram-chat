@@ -13,6 +13,7 @@ interface Props {
   hasLink?: boolean;
   pictureTextPlaceholder?: string;
   color?: string;
+  status?: string;
   onClickAvatar?: () => void;
 }
 const DKAvatar = ({
@@ -26,8 +27,9 @@ const DKAvatar = ({
   children,
   hasLink = true,
   pictureTextPlaceholder = "",
-  color = "symbol-light-info",
+  color = "symbol-light-primary",
   onClickAvatar,
+  status,
 }: Props): ReactElement => {
   return (
     <div
@@ -57,6 +59,7 @@ const DKAvatar = ({
       {!Boolean(imageUrl) && (
         <div className="font-size-h6 symbol-label font-weight-bolder">{pictureTextPlaceholder}</div>
       )}
+      {status === "online" && <i className="symbol-badge symbol-badge-bottom bg-success"></i>}
       {children}
     </div>
   );

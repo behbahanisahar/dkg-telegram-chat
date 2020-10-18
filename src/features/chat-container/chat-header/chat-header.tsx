@@ -1,7 +1,9 @@
 import { Context } from "AppContext";
+import DKAvatar from "core/components/avatar/avatar";
 import React, { ReactElement, useContext } from "react";
 import Util from "../../../utilities/utilities";
 import "./card-header.scss";
+import MenuListComposition from "./toggle-menu";
 
 interface Props {
   username?: string;
@@ -14,10 +16,11 @@ const ChatHeader = ({ username }: Props): ReactElement => {
   return (
     <>
       <div className="col-4 d-flex align-items-center">
-        <i
+        {/* <i
           className="fa fa-ellipsis-v icon-md mr-5 cursor-pointer"
           onClick={() => appContext?.actions.onShowContactsPage(true)}
-        />
+        /> */}
+        <MenuListComposition />
         Telegram
       </div>
       {userData && (
@@ -28,8 +31,18 @@ const ChatHeader = ({ username }: Props): ReactElement => {
             appContext?.actions.onShowContactInfo(true, userData);
           }}
         >
+          <DKAvatar
+            size={40}
+            onClickAvatar={() => appContext?.actions.onShowContactInfo(true, userData)}
+            imageUrl={userData?.avatarURl}
+            pictureTextPlaceholder={userData?.textPlaceHolder}
+            type="circle"
+            className="mr-4"
+          />
           {userData.title}
-          <span className="status-header ml-2">{userData.status}</span>
+          <span className="status-header ml-2">
+            {userData.type === "Group" ? userData?.groupMember?.length + " members" : userData.status}
+          </span>
         </div>
       )}
     </>

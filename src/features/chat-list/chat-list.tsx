@@ -27,11 +27,19 @@ const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
           chats.lastMessage.toLowerCase().indexOf(searchText.toLowerCase()) > -1
         );
       });
-      // filteredContact.filter(x => x.user.userName === selectedUsername)[0].newMessageCount === 0;
+
       setFilteredChats(filteredChat);
     }
   }, [searchText]);
-
+  useEffect(() => {
+    if (filteredChats.length && selectedUsername) {
+      const changedChats = filteredChats.map(chat => {
+        if (selectedUsername === chat.user.userName) chat.newMessageCount = 0;
+        return chat;
+      });
+      setFilteredChats(changedChats);
+    }
+  }, [selectedUsername]);
   return (
     <div>
       <div className="position-relative">
@@ -49,6 +57,8 @@ const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
                     }
                     onClick={() => {
                       onSetSelectedChat(cm.user.id);
+                      var messageBox: any = document.getElementById("messageBox") || []; //change focus to message box
+                      messageBox && messageBox.focus();
                     }}
                   >
                     <div className="d-flex align-items-center">
@@ -59,6 +69,7 @@ const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
                           pictureTextPlaceholder={cm.user.textPlaceHolder}
                           size={50}
                           type="circle"
+                          status={cm.user.status}
                           hasLink={false}
                         />
                       </div>
@@ -71,12 +82,14 @@ const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
                         >
                           {cm.user.title}
                         </span>
-                        <span className="text-muted form-text  font-size-xs">{cm.lastMessage}</span>
+                        <span className="text-muted form-text text-truncate-max   text-truncate font-size-xs">
+                          {cm.lastMessage}
+                        </span>
                       </div>
                     </div>
                     <div className="d-flex flex-column align-items-end">
                       <span className="text-muted font-weight-bold font-size-sm"> {cm.lastMessageTime}</span>
-                      {cm.newMessageCount && (
+                      {Boolean(cm.newMessageCount) && (
                         <span className="label label-sm label-dark text-white font-weight-bold">
                           {cm.newMessageCount}
                         </span>

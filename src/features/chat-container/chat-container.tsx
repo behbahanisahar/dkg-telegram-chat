@@ -17,19 +17,19 @@ export const ChatContainer = ({ match }: Props): ReactElement => {
   const [selectedUsername, setSelectedUsername] = useState<string>("");
   return (
     <div className="row">
-      <DKCard gutter={true} fitBody={true} className="p-0 mx-auto col-8 ">
+      <DKCard gutter={true} fitBody={true} className="p-0 mx-auto col-xl-8 col-sm-11 ">
         <DKCardHeader className="text-white d-flex" hasComplexHeader={true}>
           <ChatHeader username={match.params.username} />
         </DKCardHeader>
         <DKCardBody>
           <div className="row ">
-            <div className="col-4 pr-0">
+            <div className="col-xl-4 col-sm-5 pr-0">
               <SearchBox onSearch={setSearchTxt} />
               <div className="card-scroll h-500px pr-0">
                 <ChatList selectedUsername={selectedUsername} searchText={searchTxt} />
               </div>
             </div>
-            <div className="col-8 pl-0">
+            <div className="col-xl-8 col-sm-7 pl-0">
               <ChatPage onSetSelectedChat={setSelectedUsername} selectedChatUsername={match.params.username} />
             </div>
           </div>

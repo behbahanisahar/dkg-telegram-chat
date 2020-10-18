@@ -22,7 +22,7 @@ const ContactModal = (): ReactElement => {
       <Contacts newContact={newContact} />
       <NewContactModal onAddContact={setNewContact} />
       <div
-        className="text-transform modal-footer justify-content-center text-center tg-primary font-weight-bold"
+        className="text-transform cursor-pointer modal-footer justify-content-center text-center tg-primary font-weight-bold"
         onClick={() => appContext?.actions.onShowNewContactPage(true)}
       >
         New Contact

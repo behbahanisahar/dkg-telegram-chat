@@ -12,3 +12,19 @@
 .label-dark {
   background-color: #b3b3b3 !important;
 }
+@media (min-width: 1300px) {
+  .text-truncate-max {
+    max-width: 150px !important;
+  }
+}
+@media (min-width: 900px) {
+  .text-truncate-max {
+    max-width: 80px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .text-truncate-max {
+    max-width: 50px !important;
+  }
+}

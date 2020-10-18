@@ -7,3 +7,20 @@
 .message-text {
   white-space: pre-line !important;
 }
+
+@media (min-width: 1300px) {
+  .text-truncate-max {
+    max-width: 350px !important;
+  }
+}
+@media (min-width: 900px) {
+  .text-truncate-max {
+    max-width: 250px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .text-truncate-max {
+    max-width: 100px !important;
+  }
+}

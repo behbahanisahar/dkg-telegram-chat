@@ -76,6 +76,7 @@ const ChatPage = ({ selectedChatUsername, onSetSelectedChat }: Props): ReactElem
               />
               <div className="d-flex flex-column flex-grow-1">
                 <Form.Control
+                  id="messageBox"
                   type="text"
                   value={typedMsg}
                   placeholder="Write a message..."
@@ -99,15 +100,6 @@ const ChatPage = ({ selectedChatUsername, onSetSelectedChat }: Props): ReactElem
                   </a>
                 </div>
               </div>
-
-              <DKAvatar
-                size={60}
-                onClickAvatar={() => appContext?.actions.onShowContactInfo(true, userData)}
-                imageUrl={userData?.avatarURl}
-                pictureTextPlaceholder={userData?.textPlaceHolder}
-                type="circle"
-                className="ml-4"
-              />
             </div>
           </div>
         </>

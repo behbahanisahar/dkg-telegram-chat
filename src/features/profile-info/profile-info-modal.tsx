@@ -10,7 +10,7 @@ const ProfileInfoModal = (): ReactElement => {
     <SimpleModal
       modalMaxWidth="xs"
       open={appContext?.state.showContactInfo || false}
-      height="60vh"
+      height={appContext?.state.selectedUser.type === "Group" ? "110vh" : "65vh"}
       onClose={() => {
         appContext?.actions.onShowContactInfo(false);
       }}

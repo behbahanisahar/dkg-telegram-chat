@@ -16,7 +16,7 @@ const AllChat = ({ match, message, setSelectedChat }: Props): ReactElement => {
   const allChats = useService<ChatItem[]>(ChatServices.getAllChats(username));
   let messagesEnd: any;
   const scrollToBottom = (): void => {
-    messagesEnd.scrollIntoView({ behavior: "smooth" });
+    messagesEnd.scrollIntoView({ behavior: "smooth" }); //function for scroll down to page
   };
   useEffect(() => {
     if (allChats.status === "loaded") {
@@ -25,7 +25,7 @@ const AllChat = ({ match, message, setSelectedChat }: Props): ReactElement => {
   }, [allChats.status]);
   useEffect(() => {
     if (message) {
-      setAllMessages([...allMessages, message]);
+      setAllMessages([...allMessages, message]); //form push new message to others
     }
   }, [message]);
   useEffect(() => {

@@ -35,6 +35,7 @@ const NewContactForm = ({ onAddContact }: Props): ReactElement => {
         onChange={e => setPhoneNumber(e.target.value)}
         className="w-100 d-block mb-3"
         id="standard-basic"
+        type="number"
         label="Phone number"
       />
 
