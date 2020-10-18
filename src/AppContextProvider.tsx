@@ -14,11 +14,13 @@ class AppContextProvider extends Component<{}, AppContextState> {
     },
     showContactInfo: false,
     showContactPage: false,
+    showNewContactPage: false,
     selectedUser: { phoneNumber: "0", userName: "", title: "", id: 0, status: "" },
   };
 
   setUseInfo = (data: UserItem): void => this.setState({ userInfo: data });
   onShowContactsPage = (data: boolean): void => this.setState({ showContactPage: data });
+  onShowNewContactPage = (data: boolean): void => this.setState({ showNewContactPage: data });
   onShowContactInfo = (data: boolean, user?: UserItem): void => {
     this.setState(prevState => {
       return {
@@ -37,6 +39,7 @@ class AppContextProvider extends Component<{}, AppContextState> {
             setUseInfo: this.setUseInfo,
             onShowContactInfo: this.onShowContactInfo,
             onShowContactsPage: this.onShowContactsPage,
+            onShowNewContactPage: this.onShowNewContactPage,
           },
         }}
       >

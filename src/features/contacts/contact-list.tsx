@@ -6,9 +6,10 @@ import ContactListServices from "./contact-service/contact-service";
 import Contact from "./contact";
 interface Props {
   searchText: string;
+  newContact?: UserItem;
 }
 
-const ContactList = ({ searchText }: Props): ReactElement => {
+const ContactList = ({ searchText, newContact }: Props): ReactElement => {
   const allContacts = useService<UserItem[]>(ContactListServices.getAllContacts());
   const [filteredContact, setFilteredContact] = useState<UserItem[]>([]);
   useEffect(() => {
@@ -22,6 +23,11 @@ const ContactList = ({ searchText }: Props): ReactElement => {
       setFilteredContact(filteredContact);
     }
   }, [searchText]);
+  useEffect(() => {
+    if (newContact) {
+      setFilteredContact([...filteredContact, newContact]);
+    }
+  }, [newContact]);
 
   return (
     <>

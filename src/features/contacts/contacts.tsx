@@ -3,8 +3,12 @@ import ContactsHeader from "./contacts-header";
 import "./contact.scss";
 import { FormControl } from "react-bootstrap";
 import ContactList from "./contact-list";
+import UserItem from "entities/user-item";
+interface Props {
+  newContact?: UserItem;
+}
 
-const Contacts = (): ReactElement => {
+const Contacts = ({ newContact }: Props): ReactElement => {
   const [searchTxt, setSearchTxt] = useState<string>("");
   return (
     <div>
@@ -20,7 +24,7 @@ const Contacts = (): ReactElement => {
         className="py-4"
       />
 
-      <ContactList searchText={searchTxt} />
+      <ContactList newContact={newContact} searchText={searchTxt} />
     </div>
   );
 };

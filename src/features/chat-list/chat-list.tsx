@@ -20,8 +20,7 @@ const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
   };
   useEffect(() => {
     if (allChats.status === "loaded") {
-      // let filteredContact;
-      const filteredContact = allChats.payload.filter(chats => {
+      const filteredChat = allChats.payload.filter(chats => {
         return (
           chats.user.title.toLowerCase().indexOf(searchText.toLowerCase()) > -1 ||
           chats.user.userName.toLowerCase().indexOf(searchText.toLowerCase()) > -1 ||
@@ -29,7 +28,7 @@ const ChatList = ({ searchText, selectedUsername }: Props): ReactElement => {
         );
       });
       // filteredContact.filter(x => x.user.userName === selectedUsername)[0].newMessageCount === 0;
-      setFilteredChats(filteredContact);
+      setFilteredChats(filteredChat);
     }
   }, [searchText]);
 

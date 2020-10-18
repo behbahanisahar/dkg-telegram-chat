@@ -1,10 +1,13 @@
 import { Context } from "AppContext";
 import SimpleModal from "core/components/modal/simple-modal";
-import React, { ReactElement, useContext } from "react";
+import UserItem from "entities/user-item";
+import React, { ReactElement, useContext, useState } from "react";
 import Contacts from "./contacts";
+import NewContactModal from "./new-contact.tsx/new-contact-modal";
 
 const ContactModal = (): ReactElement => {
   const appContext = useContext(Context);
+  const [newContact, setNewContact] = useState<UserItem>();
 
   return (
     <SimpleModal
@@ -16,8 +19,12 @@ const ContactModal = (): ReactElement => {
         appContext?.actions.onShowContactInfo(false);
       }}
     >
-      <Contacts />
-      <div className="text-transform modal-footer justify-content-center text-center tg-primary font-weight-bold">
+      <Contacts newContact={newContact} />
+      <NewContactModal onAddContact={setNewContact} />
+      <div
+        className="text-transform modal-footer justify-content-center text-center tg-primary font-weight-bold"
+        onClick={() => appContext?.actions.onShowNewContactPage(true)}
+      >
         New Contact
       </div>
     </SimpleModal>

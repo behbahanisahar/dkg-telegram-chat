@@ -17,7 +17,7 @@ const ChatHeader = ({ username }: Props): ReactElement => {
         <i
           className="fa fa-ellipsis-v icon-md mr-5 cursor-pointer"
           onClick={() => appContext?.actions.onShowContactsPage(true)}
-        />{" "}
+        />
         Telegram
       </div>
       {userData && (
@@ -29,6 +29,7 @@ const ChatHeader = ({ username }: Props): ReactElement => {
           }}
         >
           {userData.title}
+          <span className="status-header ml-2">{userData.status}</span>
         </div>
       )}
     </>

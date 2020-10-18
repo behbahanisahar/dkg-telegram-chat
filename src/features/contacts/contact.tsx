@@ -1,6 +1,7 @@
+import { Context } from "AppContext";
 import DKAvatar from "core/components/avatar/avatar";
 import UserItem from "entities/user-item";
-import React, { ReactElement } from "react";
+import React, { ReactElement, useContext } from "react";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -8,8 +9,13 @@ interface Props {
 }
 
 const Contact = ({ contact }: Props): ReactElement => {
+  const appContext = useContext(Context);
   return (
-    <Link to={`/${contact.userName}`} className={"d-flex  justify-content-between p-3 "}>
+    <Link
+      to={`/${contact.userName}`}
+      onClick={() => appContext?.actions.onShowContactsPage(false)}
+      className={"d-flex  justify-content-between p-3 "}
+    >
       <div className="d-flex align-items-start">
         <DKAvatar
           className="mr-2"
