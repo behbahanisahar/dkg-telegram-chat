@@ -1,8 +1,7 @@
-import ChatItem from "../chat-item";
 import user1 from "../../../assets/img/img1.png";
 import user2 from "../../../assets/img/img2.png";
 import user3 from "../../../assets/img/img3.png";
-import groupIcon from "../../../assets/img/gpIcon.png";
+import ChatItem from "../chat-item";
 
 export default class ChatPageMockData {
   public static chat: ChatItem[] = [
@@ -69,21 +68,7 @@ export default class ChatPageMockData {
         "Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, all of which are almost exclusively geared towards the normalization of cross browser styles. Let’s dive in.",
       receiveTime: "05:10 PM",
     },
-    {
-      id: "15",
-      sender: {
-        id: 1001,
-        title: "Behbahania",
-        phoneNumber: "09120286770",
-        status: "last seen recently",
-        avatarURl: groupIcon,
-        textPlaceHolder: "BE",
-        type: "Group",
-        userName: "behbahaniha",
-      },
-      text: "salam sobe hamegi bekheir chetoriiiiid?",
-      receiveTime: "05:10 PM",
-    },
+
     {
       id: "16",
       sender: {
