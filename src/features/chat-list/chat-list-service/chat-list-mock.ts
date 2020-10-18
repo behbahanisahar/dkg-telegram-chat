@@ -67,7 +67,7 @@ export default class ChatListMockData {
       user: {
         id: 5,
         phoneNumber: "091205267870",
-        userName: "sina beh",
+        userName: "sina beh2",
         title: "sina",
         status: "online",
         avatarURl: "",
